@@ -1,22 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button >
-        <ion-back-button defaultHref="/home"></ion-back-button>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>listaPeliculas</ion-title>
-    <ion-input (input)="onSearchChange($event.target.value)" placeholder="Buscar Película"></ion-input>
+    <ion-title style="padding-top: 1rem; padding-bottom: 0.5rem">Search Movie</ion-title>
+    <ion-searchbar placeholder="Movie Name" (input)="onSearchChange($event.target.value)"></ion-searchbar>
+    <!-- <ion-input  (input)="onSearchChange($event.target.value)" placeholder="Buscar Película"></ion-input> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid class="ion-no-padding">
     <ion-row>
-      <ion-col sizeMd="4" offsetMd="4">
+      <ion-col >
         <ion-list>
           <ion-item *ngFor="let pelicula of peliculas" [routerLink]="['/detalle-pelicula/' + pelicula.id]">
-            <ion-label>{{pelicula.title}}</ion-label>
+            <ion-label class="ion-text-center">{{pelicula.title}}</ion-label>
           </ion-item>
         </ion-list>
       </ion-col>
