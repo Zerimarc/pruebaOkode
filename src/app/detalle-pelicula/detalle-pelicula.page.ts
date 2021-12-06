@@ -20,14 +20,12 @@ export class DetallePeliculaPage implements OnInit {
     this.http.get<any>('https://api.themoviedb.org/3/movie/'+ this.idPelicula + '?api_key=952d8096b4c3c852cb1a779a0bfc3f03&language=en-US')
     .subscribe(res => {
       this.pelicula = res;
-      console.log(res);
     })
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.innerWidth = window.innerWidth;
-    console.log(this.innerWidth)
   }
 
 }

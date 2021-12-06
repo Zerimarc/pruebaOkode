@@ -20,8 +20,7 @@ export class ListaPeliculasPage implements OnInit {
     })
   }
 
-  onSearchChange(searchValue: string): void {  
-    console.log(searchValue);
+  onSearchChange(searchValue: string): void {
     if(searchValue.length > 0){
       this.http.get<any>('https://api.themoviedb.org/3/search/movie?api_key=952d8096b4c3c852cb1a779a0bfc3f03&language=en-US&query=' + searchValue +'&page=1&include_adult=false')
       .subscribe(res => {

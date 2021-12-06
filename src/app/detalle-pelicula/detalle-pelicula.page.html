@@ -12,7 +12,7 @@
 <ion-content>
   <ion-item *ngIf="pelicula">
     <ion-img  *ngIf="innerWidth >= 820" style="width: 20rem;" [src]="'https://image.tmdb.org/t/p/original/' + pelicula.poster_path"></ion-img>
-    <ion-grid>
+    <ion-grid style=" padding-left: 1rem;">
       <ion-row *ngIf=" 820 > innerWidth">
         <ion-col style=" padding-bottom: 1rem;">
           <ion-img style="width: 18rem; display:block; margin: auto;" [src]="'https://image.tmdb.org/t/p/original/' + pelicula.poster_path"></ion-img>
