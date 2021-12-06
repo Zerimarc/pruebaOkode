@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -11,6 +11,7 @@ export class DetallePeliculaPage implements OnInit {
 
   idPelicula
   pelicula
+  innerWidth = window.innerWidth
 
   constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) { }
 
@@ -21,6 +22,12 @@ export class DetallePeliculaPage implements OnInit {
       this.pelicula = res;
       console.log(res);
     })
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+    console.log(this.innerWidth)
   }
 
 }

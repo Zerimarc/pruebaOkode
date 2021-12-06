@@ -10,11 +10,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-grid *ngIf="pelicula">
-      <ion-row>
-        <ion-col>
-          <ion-img [src]="'https://image.tmdb.org/t/p/original/' + pelicula.poster_path"></ion-img>
+  <ion-item *ngIf="pelicula">
+    <ion-img  *ngIf="innerWidth >= 820" style="width: 20rem;" [src]="'https://image.tmdb.org/t/p/original/' + pelicula.poster_path"></ion-img>
+    <ion-grid>
+      <ion-row *ngIf=" 820 > innerWidth">
+        <ion-col style=" padding-bottom: 1rem;">
+          <ion-img style="width: 18rem; display:block; margin: auto;" [src]="'https://image.tmdb.org/t/p/original/' + pelicula.poster_path"></ion-img>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -23,6 +24,14 @@
         </ion-col>
         <ion-col>
           {{pelicula.title}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.5">
+          Overview: 
+        </ion-col>
+        <ion-col>
+          {{pelicula.overview}}
         </ion-col>
       </ion-row>
       <ion-row>
@@ -63,10 +72,25 @@
       </ion-row>
       <ion-row>
         <ion-col size="2.5">
-          Overview: 
+          Adult Content: 
+        </ion-col>
+        <ion-col *ngIf="pelicula.adult; else noAdult">
+          Yes
+        </ion-col>
+        <ng-template #noAdult>
+          <ion-col>
+            No
+          </ion-col>
+        </ng-template>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2.5">
+          Production Companies: 
         </ion-col>
         <ion-col>
-          {{pelicula.overview}}
+          <ion-label *ngFor="let companyas of pelicula.production_companies">
+            {{companyas.name}}
+          </ion-label>
         </ion-col>
       </ion-row>
     </ion-grid>
