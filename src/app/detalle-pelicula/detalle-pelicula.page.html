@@ -11,48 +11,56 @@
 
 <ion-content>
   <ion-item *ngIf="pelicula">
-    <ion-img  *ngIf="innerWidth >= 820" style="width: 20rem;" [src]="'https://image.tmdb.org/t/p/original/' + pelicula.poster_path"></ion-img>
+    <ion-img  *ngIf="innerWidth >= 1000" style="width: 20rem;" [src]="'https://image.tmdb.org/t/p/original/' + pelicula.poster_path"></ion-img>
     <ion-grid style=" padding-left: 1rem;">
-      <ion-row *ngIf=" 820 > innerWidth">
+      <ion-row *ngIf=" 1000 > innerWidth">
         <ion-col style=" padding-bottom: 1rem;">
           <ion-img style="width: 18rem; display:block; margin: auto;" [src]="'https://image.tmdb.org/t/p/original/' + pelicula.poster_path"></ion-img>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="2.5">
-          Name: 
+        <ion-col size="2">
+          Name 
         </ion-col>
         <ion-col>
           {{pelicula.title}}
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="2.5">
-          Overview: 
+        <ion-col size="2">
+          Overview 
         </ion-col>
         <ion-col>
           {{pelicula.overview}}
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="2.5">
-          Popularity: 
+        <ion-col size="2">
+          Popularity 
         </ion-col>
         <ion-col>
           {{pelicula.popularity}}
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="2.5">
-          Release Date: 
+        <ion-col size="2">
+          Status 
+        </ion-col>
+        <ion-col>
+          {{pelicula.status}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2">
+          Release Date 
         </ion-col>
         <ion-col >
           {{pelicula.release_date}}
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="2.5">
-          Genre: 
+        <ion-col size="2">
+          Genre 
         </ion-col>
         <ion-col >
           <ion-label *ngFor="let genero of pelicula.genres">
@@ -61,8 +69,8 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="2.5">
-          Languages: 
+        <ion-col size="2">
+          Languages 
         </ion-col>
         <ion-col >
           <ion-label *ngFor="let idioma of pelicula.spoken_languages">
@@ -71,8 +79,8 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="2.5">
-          Adult Content: 
+        <ion-col size="2">
+          Adult Content 
         </ion-col>
         <ion-col *ngIf="pelicula.adult; else noAdult">
           Yes
@@ -84,8 +92,8 @@
         </ng-template>
       </ion-row>
       <ion-row>
-        <ion-col size="2.5">
-          Production Companies: 
+        <ion-col size="2">
+          Production Companies 
         </ion-col>
         <ion-col>
           <ion-label *ngFor="let companyas of pelicula.production_companies">
